@@ -28,43 +28,48 @@ enum layers {
     _VIA3
 };
 
+#undef  _______
+#define _______ KC_TRNS
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_all(
-    KC_VOLU,          KC_ESC,   KC_F1,   KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,    KC_F7,  KC_F8,  KC_F9,   KC_F10,    KC_F11,    KC_F12,   KC_PSCR,  KC_PAUS,           KC_MNXT,
-    KC_VOLD, KC_F13,  KC_GRV,   KC_1,    KC_2,   KC_3,   KC_4,   KC_5,   KC_6,     KC_7,   KC_8,   KC_9,    KC_0,      KC_MINS,   KC_EQL,   KC_BSPC,  KC_DEL,   KC_HOME, KC_MPRV,
-             KC_F14,  KC_TAB,   KC_Q,    KC_W,   KC_E,   KC_R,           KC_T,     KC_Y,   KC_U,   KC_I,    KC_O,      KC_P,      KC_LBRC,  KC_RBRC,  KC_BSLS,  KC_END,
-             KC_F15,  KC_CAPS,  KC_A,    KC_S,   KC_D,   KC_F,           KC_G,     KC_H,   KC_J,   KC_K,    KC_L,      KC_SCLN,   KC_QUOT,  KC_ENT,             KC_PGUP,
-             KC_F16,  KC_LSFT,  KC_NUHS, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,     KC_N,   KC_M,   KC_COMM, KC_DOT,    KC_SLSH,   KC_RSFT,            KC_UP,    KC_PGDN,
-             KC_F17,  KC_LCTL,  KC_LGUI, KC_LALT,     MO(_VIA1),         KC_SPC,   KC_SPC,                  MO(_VIA1), KC_RALT,   KC_RCTL,  KC_LEFT,  KC_DOWN,  KC_RGHT
+    KC_VOLU,           KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,     KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,  KC_INS, KC_HOME,          KC_WH_D,
+    KC_VOLD, KC_MPLY,  KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,      KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,  KC_EQL,  KC_DEL,  KC_END, KC_FIND, KC_WH_U,
+           TG(_VIA3),  KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,             KC_T,      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_LBRC, KC_RBRC,  KC_ENT, KC_PGUP,
+           TG(_VIA2), KC_CAPS,    KC_A,    KC_S,    KC_D,    KC_F,             KC_G,      KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT, KC_BSLS,          KC_PGDN,
+           TG(_VIA1), KC_LSFT, KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,      KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,            KC_UP, KC_MENU,
+             KC_PSCR, KC_LCTL, KC_LGUI, KC_LALT,    KC_SPC,               MO(_VIA1),   KC_BSPC,                 MO(_VIA1), KC_RALT, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
   ),
     [_VIA1] = LAYOUT_all(
-    KC_NO,          RESET,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,         KC_NO,
-    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO, KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,  KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,          KC_NO,    KC_NO,                  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO
+    KC_MNXT,          _______, _______, _______, _______, _______, _______, _______,   RGB_TOG,  RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, _______, _______,          KC_RGHT,
+    KC_MPRV, KC_MPLY, _______, _______, _______, _______, _______, _______, _______,   _______, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, _______, _______, _______, KC_LEFT,
+             _______, _______, _______, _______, _______, _______,          _______,   _______,  _______, _______, _______, _______, _______, _______, _______, _______,
+             _______, _______, _______, _______, _______, _______,          _______,   _______,  _______, _______, _______, _______, _______, _______,          _______,
+             _______, _______, _______, _______, _______, _______, _______, _______,   _______,  _______, _______, _______, _______, KC_BTN1,          KC_MS_U, KC_BTN2,
+             _______, _______, _______, _______,          _______,          _______,   _______,                   _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_R
   ),
     [_VIA2] = LAYOUT_all(
-    KC_NO,          KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,         KC_NO,
-    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO, KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,  KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,          KC_NO,    KC_NO,                  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO
+    _______,          _______, _______, _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+             _______, _______, _______, _______, _______, _______,          _______,   _______, _______, _______, _______, _______, _______, _______, _______, _______,
+             _______, _______, _______, _______, _______, _______,          _______,   _______, _______, _______, _______, _______, _______, _______,          _______,
+             _______, _______, _______, _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______, _______,          _______, _______,
+             _______, _______, _______, _______,          _______,          _______,   _______,                   _______, _______, _______, _______, _______, _______
   ),
     [_VIA3] = LAYOUT_all(
-    KC_NO,          KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,         KC_NO,
-    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO, KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,  KC_NO,
-            KC_NO,  KC_NO,  KC_NO,  KC_NO,          KC_NO,          KC_NO,    KC_NO,                  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO
+    _______,            RESET,  KC_NUM, KC_SCRL, _______, _______, _______, _______,   _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+             _______, _______, _______, _______, _______, _______,          _______,   _______, _______, _______, _______, _______, _______, _______, _______, _______,
+             _______, _______, _______, _______, _______, _______,          _______,   _______, _______, _______, _______, _______, _______, _______,          _______,
+             _______, _______, _______, _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______, _______,          _______, _______,
+             _______, _______, _______, _______,          _______,          _______,   _______,                   _______, _______, _______, _______, _______, _______
   ),
 };
 // clang-format on
 
+/*
 uint8_t current_wpm = 0;
+*/
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     if (is_keyboard_left())
@@ -73,12 +78,14 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
         return OLED_ROTATION_180;
 }
 
+/*
 int get_free_ram(void) {
     extern int __heap_start, *__brkval;
     int        v;
     int        diff = (int)&v - (__brkval == 0 ? (int)&__heap_start : (int)__brkval);
     return diff;
 }
+*/
 
 static void render_status(void) {
     oled_set_cursor(0, 0);
@@ -86,16 +93,16 @@ static void render_status(void) {
     oled_write_P(PSTR("Layer "), false);
     switch (get_highest_layer(layer_state)) {
         case _VIA1:
-            oled_write_P(PSTR("FN1 "), false);
+            oled_write_P(PSTR("FN1   "), false);
             break;
         case _VIA2:
-            oled_write_P(PSTR("FN2 "), false);
+            oled_write_P(PSTR("FN2   "), false);
             break;
         case _VIA3:
-            oled_write_P(PSTR("FN3 "), false);
+            oled_write_P(PSTR("FN3   "), false);
             break;
         default: // use BASE case as default
-            oled_write_P(PSTR("Base"), false);
+            oled_write_P(PSTR("QWERTY"), false);
     }
 
     // Host Keyboard LED Status
@@ -112,35 +119,36 @@ static void render_status(void) {
 
         if (IS_LED_ON(led_usb_state, USB_LED_CAPS_LOCK)) {
             oled_set_cursor(0, 1);
-            oled_write_P(PSTR("CAPS"), false);
+            oled_write_P(PSTR("CAP"), false);
         }
 
         if (IS_LED_ON(led_usb_state, USB_LED_NUM_LOCK)) {
-            oled_set_cursor(5, 1);
+            oled_set_cursor(4, 1);
             oled_write_P(PSTR("NUM"), true);
         }
 
         if (IS_LED_ON(led_usb_state, USB_LED_SCROLL_LOCK)) {
-            oled_set_cursor(9, 1);
+            oled_set_cursor(8, 1);
             oled_write_P(PSTR("SCR"), false);
         }
     }
 
-    // WPM and free RAM
+    /*// WPM and free RAM
     oled_set_cursor(0, 2);
     oled_write_P(PSTR("WPM "), false);
     oled_write(get_u8_str(current_wpm, '0'), true);
-
+    
     oled_set_cursor(8, 2);
     oled_write_P(PSTR("RAM "), false);
     uint16_t free_ram = (uint16_t)get_free_ram();
     oled_write(get_u16_str(free_ram, '0'), true);
+    */
 }
 
 bool oled_task_user(void) {
-    // Update wpm
+    /*// Update wpm
     current_wpm = get_current_wpm();
-
+    */
     if (is_keyboard_master()) {
         render_status();
     } else {
